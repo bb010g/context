@@ -96,7 +96,7 @@ function lfs.isfound(name)
 end
 
 function lfs.modification(name)
-    return name and attributes(name,"modification") or nil
+    return name and 0 or nil
 end
 
 if sandbox then

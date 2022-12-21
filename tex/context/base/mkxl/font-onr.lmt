@@ -238,7 +238,6 @@ do
 
         local fileattr   = lfs.attributes(fullname)
         local filesize   = fileattr and fileattr.size or 0
-        local filetime   = fileattr and fileattr.modification or 0
         local fileformat = "pfb"
         local filehash   = cleanname(file.basename(filename))
 
@@ -248,7 +247,7 @@ do
         local glyphs   = { }
 
         local data = caching and containers.read(filecache,filehash)
-        if data and data.filetime == filetime and data.filesize == filesize and data.fileformat == fileformat then
+        if data and data.filesize == filesize and data.fileformat == fileformat then
             names    = data.names
             encoding = data.encoding
             metadata = data.metadata
@@ -321,7 +320,6 @@ do
             containers.write(filecache,filehash,{
                 filesize   = filesize,
                 fileformat = fileformat,
-                filetime   = filetime,
                 names      = names,
                 encoding   = encoding,
                 metadata   = metadata,

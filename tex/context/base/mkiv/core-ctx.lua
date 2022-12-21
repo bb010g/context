@@ -280,7 +280,6 @@ function ctxrunner.load(ctxname)
                     logs.newline()
                 end
                 if lfs.isfile(newfile) then
-                    file.syncmtimes(filename,newfile)
                     report_prepfiles("%a is converted to %a",filename,newfile)
                 else
                     report_prepfiles("%a is not converted to %a",filename,newfile)
